@@ -1,0 +1,42 @@
+.glitch-inline {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.glitch-inline span {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  display: inline-block;
+  animation: glitch var(--duration) infinite alternate-reverse;
+  animation-delay: var(--delay);
+  white-space: nowrap;
+}
+
+.glitch-inline span:nth-child(odd) {
+  --glitch-translate: 6px;
+}
+.glitch-inline span:nth-child(even) {
+  --glitch-translate: -6px;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    transform: translate(var(--glitch-translate));
+  }
+  2% {
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  4%,
+  100% {
+    text-shadow: none;
+    transform: none;
+  }
+}

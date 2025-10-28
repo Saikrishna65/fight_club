@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  overflow-x: hidden;
+  scrollbar-width: none;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.marquee-track {
+  animation: marquee-scroll linear infinite;
+}
+
+@font-face {
+  font-family: "Fight";
+  src: url("/fonts/FIGHTT3_.ttf") format("truetype");
+  /* font-weight: 400; */
+  /* font-style: normal; */
+}
+@font-face {
+  font-family: "label";
+  src: url("/fonts/Impact_Label.ttf") format("truetype");
+  /* font-weight: 400; */
+  /* font-style: normal; */
+}
+@font-face {
+  font-family: "base";
+  src: url("/fonts/Base 02.ttf") format("truetype");
+  /* font-weight: 400; */
+  /* font-style: normal; */
+}
+@font-face {
+  font-family: "trash";
+  src: url("/fonts/TrashHand.ttf") format("truetype");
+  /* font-weight: 400; */
+  /* font-style: normal; */
+}
+
+@font-face {
+  font-family: "Mons";
+  src: url("/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  /* font-weight: 400; */
+  /* font-style: normal; */
+}
+@font-face {
+  font-family: "impact";
+  src: url("/fonts/Impact.ttf") format("truetype");
+  /* font-weight: 400; */
+  /* font-style: normal; */
 }
